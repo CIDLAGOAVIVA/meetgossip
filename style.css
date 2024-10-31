@@ -1,0 +1,35 @@
+/* Estilizar o botão */
+.stButton > button {
+    background-color: #1ABC9C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Estilizar títulos */
+h1, h2, h3 {
+    color: #ECF0F1;
+    text-align: center;
+}
+
+/* Estilizar o texto */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #ECF0F1;
+}
+
+/* Personalizar o fundo */
+.stApp {
+    background-color: #2C3E50;
+    padding: 2em;
+}
+
+/* Estilizar o uploader de arquivos */
+.stFileUploader label {
+    color: #ECF0F1;
+}
+
+/* Outros estilos personalizados */

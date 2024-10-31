@@ -9,9 +9,17 @@ import moviepy.editor as mp
 import tempfile
 import google.generativeai as genai
 import re
+import json
+import streamlit.components.v1 as components  # Adicionar importação para componentes
 
 # Carregar variáveis de ambiente do arquivo .env
 load_dotenv()
+
+# Configurar a página com o ícone de microfone
+st.set_page_config(
+    page_title="MeetGossip",
+    page_icon="https://img.icons8.com/ios-filled/50/00FF00/microphone.png"
+)
 
 # Configurar a API do Google Gemini
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -106,12 +114,33 @@ def summarize_meeting(transcription_text):
         st.error(f"Erro ao gerar sumarização: {e}")
         return None
 
+def save_transcription(transcription_text):
+    with open("transcricao.txt", "w") as f:
+        f.write(transcription_text)
+
+def load_transcription():
+    if os.path.exists("transcricao.txt"):
+        with open("transcricao.txt", "r") as f:
+            return f.read()
+    return None
+
+def save_summary(summary_text):
+    with open("sumarizacao.txt", "w") as f:
+        f.write(summary_text)
+
+def load_summary():
+    if os.path.exists("sumarizacao.txt"):
+        with open("sumarizacao.txt", "r") as f:
+            return f.read()
+    return None
+
 st.title("MeetGossip - áudio para texto")
 st.write("Faça upload de um arquivo de áudio em formato .m4a, .mp4 ou .mp3 para transcrição.")
 
 uploaded_file = st.file_uploader("Escolha um arquivo de áudio", type=["m4a", "mp4", "mp3"])
 
-transcricao_texto = None  # Inicializa a variável fora do bloco if
+transcricao_texto = load_transcription()  # Carregar transcrição persistente
+sumarizacao_texto = load_summary()  # Carregar sumarização persistente
 
 if uploaded_file is not None:
     file_name = uploaded_file.name
@@ -124,8 +153,7 @@ if uploaded_file is not None:
             transcricao_texto = " ".join(transcriptions)
 
             # Salvar a transcrição completa
-            with open("transcricao.txt", "w") as f:
-                f.write(transcricao_texto)
+            save_transcription(transcricao_texto)
 
             # Permitir o download da transcrição completa
             st.download_button('Baixar Transcrição', data=transcricao_texto,
@@ -134,11 +162,31 @@ if uploaded_file is not None:
             # Gerar a sumarização
             summary = summarize_meeting(transcricao_texto)
             if summary and summary.strip():
+                sumarizacao_texto = summary
+                save_summary(sumarizacao_texto)
                 st.subheader("Sumarização Detalhada")
-                st.write(summary)
-                st.download_button('Baixar Sumarização', data=summary,
+                st.write(sumarizacao_texto)
+                st.download_button('Baixar Sumarização', data=sumarizacao_texto,
                                    file_name='sumarizacao.txt', mime='text/plain')
             else:
                 st.error("Falha ao gerar a sumarização. A resposta da API está vazia ou inválida.")
 
+if transcricao_texto:
+    with st.expander("Transcrição"):
+        st.write(transcricao_texto)
+
+if sumarizacao_texto:
+    with st.expander("Sumarização"):
+        st.write(sumarizacao_texto)
+
 st.write("Desenvolvido por Nextmarte: marcusantonio@id.uff.br")
+
+# Chat interativo na barra lateral
+if transcricao_texto:
+    st.sidebar.subheader("Chat Interativo")
+    user_input = st.sidebar.text_input("Faça uma pergunta sobre a transcrição", on_change=lambda: st.session_state.update({"send": True}))
+    if st.sidebar.button("Enviar Pergunta") or st.session_state.get("send"):
+        if user_input:
+            response = model.generate_content(f"Pergunta: {user_input}\nTranscrição: {transcricao_texto}")
+            st.sidebar.write(response.text)
+            st.session_state["send"] = False

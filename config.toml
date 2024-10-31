@@ -1,0 +1,37 @@
+[server]
+# Define o tamanho máximo de upload de arquivos em megabytes
+#maxUploadSize=1024
+
+# Define a porta em que o Streamlit será executado
+port = 8501
+
+# Define se o Streamlit deve ser executado em modo de desenvolvimento
+# development: mostra mensagens de erro detalhadas
+# production: esconde mensagens de erro detalhadas
+headless = true
+
+# Define se o Streamlit deve abrir automaticamente o navegador
+# quando o servidor for iniciado
+browser.gatherUsageStats = false
+
+# Define o endereço IP em que o Streamlit será executado
+# 0.0.0.0 permite que o Streamlit seja acessado de qualquer endereço IP
+address = "0.0.0.0"
+
+# Define se o Streamlit deve usar HTTPS
+# Para usar HTTPS, você precisa fornecer os caminhos para os arquivos de certificado e chave
+# enableCORS = false
+# enableXsrfProtection = false
+
+[theme]
+base = "dark"
+primaryColor = "#1ABC9C"
+backgroundColor = "#2C3E50"
+secondaryBackgroundColor = "#34495E"
+textColor = "#ECF0F1"
+font = "sans serif"
+
+[logger]
+# Define o nível de log
+# "error", "warning", "info", "debug"
+level = "info"

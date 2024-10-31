@@ -1,0 +1,31 @@
+## Resumo detalhado do texto sobre Git e GitHub:
+
+O texto é uma introdução ao Git e ao GitHub, ferramentas essenciais para cientistas de dados e desenvolvedores. O autor, Marcos Antônio, professor de Ciência de Dados, explica a importância de dominar essas ferramentas para trabalhar com código, principalmente no contexto da Ciência de Dados onde as mudanças no código são constantes. 
+
+**O que é Git e GitHub?**
+
+* **Git:** É um sistema de controle de versão que permite rastrear alterações no código ao longo do tempo, facilitando a recuperação de versões anteriores, a colaboração em projetos e a resolução de conflitos.
+* **GitHub:** É uma plataforma online que utiliza o Git para hospedar código, colaborar em projetos, compartilhar código com outros desenvolvedores e gerenciar projetos. 
+
+**Importância para cientistas de dados:**
+
+* **Controle de versão:** O Git permite que você acompanhe todas as modificações no código, garantindo que você possa voltar a uma versão anterior caso algo dê errado.
+* **Colaboração:** O GitHub facilita o trabalho em equipe, permitindo que vários cientistas de dados trabalhem em um mesmo projeto simultaneamente.
+* **Compartilhamento:** Você pode compartilhar seu código com a comunidade de cientistas de dados no GitHub, contribuindo para projetos open-source e aprendendo com outros desenvolvedores.
+
+**Conteúdo do curso:**
+
+O curso visa ensinar o básico do Git e do GitHub, com foco em tornar os alunos autossuficientes na utilização dessas ferramentas para projetos de Ciência de Dados. O curso abordará:
+
+* **Instalação do Git:** O curso ensinará como instalar e configurar o Git no computador do aluno.
+* **Uso do Git na linha de comando:** O curso ensina o uso do Git através da linha de comando, a ferramenta básica para interagir com o Git.
+* **O GitHub em ação:** O curso explorará as funcionalidades do GitHub, como criação de repositórios, controle de versão, colaboração em projetos e gerenciamento de issues.
+* **Projeto prático:** Os alunos serão incentivados a criar um projeto próprio, utilizando as ferramentas aprendidas, para colocar em prática o conhecimento adquirido.
+
+**Objetivos do curso:**
+
+* Ensinar os alunos a usar o Git e o GitHub para controlar versões, colaborar em projetos e gerenciar código.
+* Tornar os alunos autossuficientes para trabalhar em projetos de Ciência de Dados, utilizando o Git e o GitHub.
+* Preparar os alunos para colaborar em projetos de código aberto e contribuir para a comunidade de Ciência de Dados.
+
+**Em resumo, o curso sobre Git e GitHub visa capacitar cientistas de dados para trabalhar de forma eficiente com código, controlando as versões, colaborando em projetos e compartilhando seu trabalho com a comunidade.** 
