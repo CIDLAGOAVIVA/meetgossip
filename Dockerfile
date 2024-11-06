@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Exponha a porta que o Streamlit usa
-EXPOSE 8501
+EXPOSE 8500
 
 # Comando para rodar a aplicação
 CMD ["streamlit", "run", "meetgossip.py"]

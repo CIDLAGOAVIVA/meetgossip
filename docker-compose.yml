@@ -1,10 +1,10 @@
-version: '3.8'
+version: "3.8"
 
 services:
   meetgossip:
     build: .
     ports:
-      - "8501:8501"
+      - "8500:8500"
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     volumes:

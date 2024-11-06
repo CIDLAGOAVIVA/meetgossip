@@ -3,7 +3,7 @@
 #maxUploadSize=1024
 
 # Define a porta em que o Streamlit será executado
-port = 8501
+port = 8500
 
 # Define se o Streamlit deve ser executado em modo de desenvolvimento
 # development: mostra mensagens de erro detalhadas
